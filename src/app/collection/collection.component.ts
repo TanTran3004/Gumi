@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-collection',
@@ -7,7 +7,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CollectionComponent implements OnInit {
   @Input() collection: any;
+
+  @Output() isClickLike = new EventEmitter<any>();
+  @Output() isRemoveCol = new EventEmitter<any>();
   constructor() {}
 
   ngOnInit(): void {}
+  handleClick() {
+    // console.log(this.collection);
+    // this.collection.islike = true;
+    this.isClickLike.emit(this.collection);
+  }
+  removeCol() {
+    console.log('Vào đây!!!');
+    console.log(this.isRemoveCol);
+
+    this.isRemoveCol.emit(this.collection);
+  }
 }

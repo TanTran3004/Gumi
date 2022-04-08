@@ -1,5 +1,60 @@
+<!-- <div *ngFor="let item of list" class="chooseCatForSearch">
+  <div class="wrapper-checkbox">
+    <input
+      (click)="ChooseMuc(item)"
+      type="checkbox"
+      [name]="item"
+      [value]="item"
+    />
+    <label [for]="item">{{ item }}</label>
+  </div>
+</div> -->
+<form [formGroup]="searchForm" (ngSubmit)="searchSub()">
+  <div class="form-group">
+    <label for="">q</label>
+    <input type="text" class="form-control" formControlName="q" />
+  </div>
+  <div class="form-group">
+    <label for="">center</label>
+    <input type="text" class="form-control" formControlName="center" />
+  </div>
+  <div class="form-group">
+    <label for="">description</label>
+    <input type="text" class="form-control" formControlName="description" />
+  </div>
+  <div class="form-group">
+    <label for="">keywords</label>
+    <input type="text" class="form-control" formControlName="keywords" />
+  </div>
+  <div class="form-group">
+    <label for="">nasa_id</label>
+    <input type="text" class="form-control" formControlName="nasa_id" />
+  </div>
+  <div class="form-group">
+    <label for="">photographer</label>
+    <input type="text" class="form-control" formControlName="photographer" />
+  </div>
+  <div class="form-group">
+    <label for="">title</label>
+    <input type="text" class="form-control" formControlName="title" />
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
 <div class="img-nasa">
+  <!-- <input
+    type="text"
+    name=""
+    id=""
+    [(ngModel)]="searchText"
+    (ngModelChange)="searchFunc()"
+  /> -->
+  <button (click)="saveLoc()">Save</button>
   <ng-container *ngFor="let item of product">
     <app-collection [collection]="item"></app-collection>
   </ng-container>
 </div>
+
+<!-- <div class="sort">
+  <i class="fa-regular fa-filter"></i>
+</div> -->

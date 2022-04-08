@@ -1,0 +1,7 @@
+<div class="" *ngFor="let item of list">
+  <app-collection
+    [collection]="item"
+    (isClickLike)="outputIsClickLike($event)"
+    (isRemoveCol)="outputIsClickRm($event)"
+  ></app-collection>
+</div>

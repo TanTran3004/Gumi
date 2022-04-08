@@ -1,11 +1,37 @@
 <div class="collection">
   <div class="collection-wrapper">
     <div class="img-wrapper">
-      <img [src]="collection.links[0].href" alt="" />
+      <img [src]="collection?.links[0]?.href" alt="" />
     </div>
-    <div class="texts">
-      <h3 class="title">{{ collection.data[0].title }}</h3>
+    <div [routerLink]="['/detail', collection?.data[0]?.nasa_id]" class="texts">
+      <h3 class="title">{{ collection?.data[0]?.title }}</h3>
       <!-- <div class="description">{{ collection.data[0].description }}</div> -->
+    </div>
+    <div class="wrapper-like-edit">
+      <div class="like-wrapper" (click)="handleClick()">
+        <button
+          class="btn custom-button ani-like"
+          *ngIf="collection.islike == false"
+        >
+          <i class="fa-regular fa-heart"></i>
+          <div class="like-text">Like</div>
+        </button>
+        <button
+          class="btn custom-button ani-like"
+          *ngIf="collection.islike == true"
+        >
+          <i class="fa-solid fa-heart"></i>
+          <div class="like-text">Liked</div>
+        </button>
+      </div>
+      <button class="btn custom-edit wrapper-edit">
+        <i class="fa-regular fa-pen-to-square"></i>
+        <div class="edit-text">Edit</div>
+      </button>
+    </div>
+
+    <div class="remove-wrapper" (click)="removeCol()">
+      <i class="fa-solid fa-trash"></i>
     </div>
   </div>
 </div>
