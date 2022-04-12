@@ -1,15 +1,25 @@
 <div class="collection">
   <div class="collection-wrapper">
     <div class="img-wrapper">
-      <img [src]="collection?.links[0]?.href" alt="" />
+      <img
+        *ngIf="collection?.links[0]?.href || collection?.links[0]?.href > 0"
+        [src]="collection?.links[0]?.href"
+        alt=""
+      />
+      <img
+        *ngIf="!collection?.links[0] || collection?.links[0] == 'undefined'"
+        [src]="'../../assets/nofound/notfound.png'"
+        alt=""
+      />
     </div>
     <div [routerLink]="['/detail', collection?.data[0]?.nasa_id]" class="texts">
       <h3 class="title">{{ collection?.data[0]?.title }}</h3>
       <!-- <div class="description">{{ collection.data[0].description }}</div> -->
     </div>
     <div class="wrapper-like-edit">
-      <div class="like-wrapper" (click)="handleClick()">
+      <div class="like-wrapper">
         <button
+          (click)="handleClick()"
           class="btn custom-button ani-like"
           *ngIf="collection.islike == false"
         >
@@ -17,6 +27,7 @@
           <div class="like-text">Like</div>
         </button>
         <button
+          (click)="unLikeCol()"
           class="btn custom-button ani-like"
           *ngIf="collection.islike == true"
         >
@@ -30,8 +41,19 @@
       </button>
     </div>
 
-    <div class="remove-wrapper" (click)="removeCol()">
+    <div
+      class="remove-wrapper"
+      *ngIf="collection.removed == false"
+      (click)="removeCol()"
+    >
       <i class="fa-solid fa-trash"></i>
+    </div>
+    <div
+      class="undo-wrapper"
+      *ngIf="collection.removed == true"
+      (click)="undoCol()"
+    >
+      <i class="fas fa-undo"></i>
     </div>
   </div>
 </div>

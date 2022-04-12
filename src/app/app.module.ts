@@ -12,6 +12,8 @@ import { ListComponent } from './list/list.component';
 import { CollectionDetailsComponent } from './collection-details/collection-details.component';
 import { EditCollectionComponent } from './edit-collection/edit-collection.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RestoreCollectionComponent } from './restore-collection/restore-collection.component';
+import { LikedCollectionComponent } from './liked-collection/liked-collection.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListComponent,
     CollectionDetailsComponent,
     EditCollectionComponent,
+    RestoreCollectionComponent,
+    LikedCollectionComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,11 +11,17 @@ export class AdminService {
   search(nameSearch: string, searhText: string): Observable<any> {
     return this.http.get(`search?${nameSearch}=(${searhText}))`);
   }
+  search2(text: string): Observable<any> {
+    return this.http.get(`search?${text}`);
+  }
   getImages(id: string): Observable<any> {
     return this.http.get('asset/' + id);
   }
-  getMetadata(id: string): Observable<any> {
-    return this.http.get('metadata/' + id);
+  getMetadata(data: any): Observable<any> {
+    return this.http.get(`metadata/${data.nasa_id}`);
+  }
+  getMetadata2(text: any): Observable<any> {
+    return this.http.get(`metadata/${text}`);
   }
   getCaptions(id: string): Observable<any> {
     return this.http.get('captions/' + id);

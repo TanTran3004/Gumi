@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row"></div>
+  <div class="container">
+    <div class="row">
+      <ng-container class="" *ngFor="let item of listRemoved; index as i">
+        <div class="col-4 collections">
+          <div class="collection">
+            <app-collection
+              [collection]="item"
+              (isUndoOutput)="undoData($event)"
+            ></app-collection>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

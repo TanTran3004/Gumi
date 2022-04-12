@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://images-api.nasa.gov',
+  apiUrl: 'https://images-api.nasa.gov/',
 };
 
 /*

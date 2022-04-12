@@ -1,7 +1,31 @@
-<div class="" *ngFor="let item of list">
-  <app-collection
-    [collection]="item"
-    (isClickLike)="outputIsClickLike($event)"
-    (isRemoveCol)="outputIsClickRm($event)"
-  ></app-collection>
+<div class="container-fluid">
+  <div class="row">
+    <div class="filter">
+      <i class="fa-solid fa-sort"></i>
+      <span>Filter</span>
+    </div>
+    <div class="sort-filter">
+      <ul>
+        <li (click)="search('newest')">Sort data with Newest</li>
+        <li (click)="search('oldest')">Sort data with Oldest</li>
+        <li (click)="search('aToZ')">Sort data with A - Z</li>
+        <li (click)="search('zToA')">Sort data with Z - A</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <ng-container class="" *ngFor="let item of list; index as i">
+        <div class="col-4 collections">
+          <div class="collection">
+            <app-collection
+              [collection]="item"
+              (isClickLike)="outputIsClickLike($event)"
+              (isRemoveCol)="outputIsClickRm($event)"
+            ></app-collection>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>

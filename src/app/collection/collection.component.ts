@@ -13,6 +13,8 @@ export class CollectionComponent implements OnInit {
   @Output() isClickLike = new EventEmitter<any>();
   @Output() isRemoveCol = new EventEmitter<any>();
   @Output() isEditCol = new EventEmitter<any>();
+  @Output() isUndoOutput = new EventEmitter<any>();
+  @Output() isUnlikeOutput = new EventEmitter<any>();
   constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {}
@@ -22,13 +24,22 @@ export class CollectionComponent implements OnInit {
     this.isClickLike.emit(this.collection);
   }
   removeCol() {
-    console.log('Vào đây!!!');
     console.log(this.isRemoveCol);
-
     this.isRemoveCol.emit(this.collection);
   }
   editCol() {
     let modalRef = this.modalService.open(EditCollectionComponent);
-    this.isRemoveCol.emit(this.collection);
+    modalRef.componentInstance.id = this.collection.data[0].nasa_id;
+    modalRef.result.then((res) => {
+      if (res) {
+        window.location.reload();
+      }
+    });
+  }
+  undoCol() {
+    this.isUndoOutput.emit(this.collection);
+  }
+  unLikeCol() {
+    this.isUnlikeOutput.emit(this.collection);
   }
 }

@@ -9,6 +9,22 @@
     <label [for]="item">{{ item }}</label>
   </div>
 </div> -->
+<div class="container-fluid">
+  <div class="container">
+    <div class="header-wrapper">
+      <div class="header-title">NASA</div>
+      <div class="header-property">
+        <ul>
+          <li>Home</li>
+          <li>All Data</li>
+          <li>Liked Data</li>
+          <li>Removed Data</li>
+        </ul>
+      </div>
+    </div>
+    <div class="body-wrapper">.row</div>
+  </div>
+</div>
 <form [formGroup]="searchForm" (ngSubmit)="searchSub()">
   <div class="form-group">
     <label for="">q</label>

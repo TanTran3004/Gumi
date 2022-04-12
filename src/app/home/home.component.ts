@@ -159,7 +159,7 @@ export class HomeComponent implements OnInit {
       allPro.push(item);
     });
     let a = JSON.stringify(allPro);
-
     localStorage.setItem('list', a);
+    window.location.assign('/list');
   }
 }

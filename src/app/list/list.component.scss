@@ -1,0 +1,28 @@
+.filter {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  float: right;
+  align-items: center;
+  /* margin-right: 16%; */
+  position: relative;
+  font-size: 22px;
+  margin-top: 15px;
+}
+.sort-filter {
+  background-color: #fff;
+  margin-top: 40px;
+  border-radius: 10px;
+  padding: 10px;
+  float: right;
+  position: absolute;
+  right: 14px;
+  width: auto;
+  height: auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  -moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  ul {
+    list-style-type: none;
+  }
+}
