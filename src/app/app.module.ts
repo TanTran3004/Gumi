@@ -10,6 +10,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CollectionComponent } from './collection/collection.component';
 import { ListComponent } from './list/list.component';
 import { CollectionDetailsComponent } from './collection-details/collection-details.component';
+import { EditCollectionComponent } from './edit-collection/edit-collection.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +19,7 @@ import { CollectionDetailsComponent } from './collection-details/collection-deta
     CollectionComponent,
     ListComponent,
     CollectionDetailsComponent,
+    EditCollectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { CollectionDetailsComponent } from './collection-details/collection-deta
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [
     {

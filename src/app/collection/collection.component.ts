@@ -1,4 +1,6 @@
+import { EditCollectionComponent } from './../edit-collection/edit-collection.component';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-collection',
@@ -10,7 +12,8 @@ export class CollectionComponent implements OnInit {
 
   @Output() isClickLike = new EventEmitter<any>();
   @Output() isRemoveCol = new EventEmitter<any>();
-  constructor() {}
+  @Output() isEditCol = new EventEmitter<any>();
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {}
   handleClick() {
@@ -22,6 +25,10 @@ export class CollectionComponent implements OnInit {
     console.log('Vào đây!!!');
     console.log(this.isRemoveCol);
 
+    this.isRemoveCol.emit(this.collection);
+  }
+  editCol() {
+    let modalRef = this.modalService.open(EditCollectionComponent);
     this.isRemoveCol.emit(this.collection);
   }
 }
